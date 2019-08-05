@@ -29,6 +29,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     // Meta Data Routes
     Route::get('getAllColums','MetaDataController@getAllColums') -> name('getAllColums');
+
+    // EndPoints for Notes Class
+    Route::get('getAllNotes','NoteController@getAllNotes') -> name('getAllNotes');
+
+    // EndPoints for Task Class
+    Route::get('getAllTasks','TaskController@getAllTasks') -> name('getAllTasks');
 // });
 
 Route::post('login', 'AuthenticateController@authenticate')->name('login');
+Route::post('insertTask', 'TaskController@insertTask')->name('insertTask');
+Route::post('insertNote', 'NoteController@insertNote')->name('insertNote');
