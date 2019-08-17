@@ -37,6 +37,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('getAllTasks','TaskController@getAllTasks') -> name('getAllTasks');
 // });
 
-Route::post('login', 'AuthenticateController@authenticate')->name('login');
-Route::post('insertTask', 'TaskController@insertTask')->name('insertTask');
-Route::post('insertNote', 'NoteController@insertNote')->name('insertNote');
+    Route::post('login', 'AuthenticateController@authenticate')->name('login');
+    Route::post('insertTask', 'TaskController@insertTask')->name('insertTask');
+    Route::post('insertNote', 'NoteController@insertNote')->name('insertNote');
+
+    Route::post('updateTask', 'TaskController@updateTask')->name('updateTask');
+    Route::post('updateNote', 'NoteController@updateNote')->name('updateNote');
+
+    Route::post('deleteTask', 'TaskController@deleteTask')->name('deleteTask');
+    Route::post('deleteNote', 'NoteController@deleteNote')->name('deleteNote');

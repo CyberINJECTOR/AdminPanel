@@ -17,4 +17,18 @@ class NoteController extends Controller
         print($newNote);
         return $newNote;
     }
+
+    public function updateNote(Request $request) {
+        $oldNote = Note::find($request->input('id'));
+        $oldNote->entity = $request->input('entity');
+        $oldNote->id = $request->input('id');
+        $oldNote->value = $request->input('value');
+        $oldNote->save();
+        return 'noteUpdated';
+    }
+
+    public function deleteNote(Request $request) {
+        $oldNote = Note::find($request->input('id'));
+        $oldNote->delete();
+    }
 }
