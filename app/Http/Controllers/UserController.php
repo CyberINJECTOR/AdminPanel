@@ -22,4 +22,19 @@ class UserController extends Controller
         $newUser = Users::create($request->all());
         return $newUser;
     }
+
+    public function updateUser(Request $request) {
+        $newUser = Users::find($request->input('id'));
+        $newUser->name = $request->input('name');
+        $newUser->email = $request->input('email');
+        $newUser->email_verified_at = $request->input('email_verified_at');
+        $newUser->password = $request->input('password');
+        $newUser->profileDescription = $request->input('profileDescription');
+        $newUser->created_at = $request->input('created_at');
+        $newUser->urlImg = $request->input('urlImg');
+        $newUser->city = $request->input('city');
+        $newUser->company = $request->input('company');
+        $newUser->save();
+        return 'UserUpdated';
+    }
 }

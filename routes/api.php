@@ -18,14 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 // Route::middleware(['jwt.auth']) -> group(function() {
-    // User Routes 
+    // User Routes
     Route::get('getUsers','UserController@getAll') -> name('getAllUsers');
     Route::get('getUserById/{id}','UserController@getUserById') -> name('getUserById');
     Route::post('addUser','UserController@addUser') -> name('addUser');
+    Route::post('updateUser','UserController@updateUser') -> name('updateUser');
 
-    // Event Routes 
+    // Event Routes
 
     Route::get('getAllEvents','EventController@getAllEvents') -> name('getAllEvents');
+    Route::get('GetUrlPath','EventController@GetUrlPath') -> name('GetUrlPath');
 
     // Meta Data Routes
     Route::get('getAllColums','MetaDataController@getAllColums') -> name('getAllColums');
@@ -35,7 +37,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     // EndPoints for Task Class
     Route::get('getAllTasks','TaskController@getAllTasks') -> name('getAllTasks');
-// });
 
     Route::post('login', 'AuthenticateController@authenticate')->name('login');
     Route::post('insertTask', 'TaskController@insertTask')->name('insertTask');
@@ -46,3 +47,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::post('deleteTask', 'TaskController@deleteTask')->name('deleteTask');
     Route::post('deleteNote', 'NoteController@deleteNote')->name('deleteNote');
+
+    // EndPoints for Image Class
+
+    Route::get('getImageArrayListById/id={id}','ImageController@getImageArrayListById') -> name('getImageArrayListById');
